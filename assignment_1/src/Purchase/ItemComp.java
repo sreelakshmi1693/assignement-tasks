@@ -1,6 +1,5 @@
 package Purchase;
 
-
 import java.util.ArrayList;
 
 import org.openqa.selenium.By;
@@ -10,13 +9,12 @@ import org.testng.annotations.Test;
 
 import Onlinepurchase.ItemSelect;
 
-
 @Test
-public class ItemComp {
-	 static WebDriver driver;
-
-	public static void Siteloading() throws InterruptedException {
-		
+public class ItemComp 
+{
+	static WebDriver driver;
+	public static void Siteloading() throws InterruptedException 
+	{
 		System.setProperty("webdriver.gecko.driver","D:\\Automation\\Automation\\Geckodriver Latest\\geckodriver-v0.21.0-win64\\geckodriver.exe");
 		Thread.sleep(3000);
 		driver = new FirefoxDriver();
@@ -32,11 +30,9 @@ public class ItemComp {
 		    amazonPrice = Amazonprice.replaceAll(",","");
 	    	item1 = Integer.parseInt(amazonPrice);
 	    }
-		
 		catch(NumberFormatException ex)
 		{ 
-		  System.out.println(ex);
-		  
+		    System.out.println(ex); 
 		}
 		System.out.println("Amazon price is " + amazonPrice);
 		ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
@@ -55,12 +51,10 @@ public class ItemComp {
 	    	item2 = Integer.parseInt(flipkartPrice);
 		} 
 	    catch(NumberFormatException ex)
-	    
 		{ 
-			 System.out.println(ex);
-			 
+			 System.out.println(ex);		 
 		}
-    System.out.println("Flipkart price is " +flipkartPrice);
+        System.out.println("Flipkart price is " +flipkartPrice);
     	if (item1!= 0 && item2!=0) 
     	{
     	    if (item1 > item2) 
@@ -74,9 +68,8 @@ public class ItemComp {
         else
            {
            System.out.println("Both prices are equal");
-	
-	   }
-	}
+	       }
+	    }
 	}
 }
 
